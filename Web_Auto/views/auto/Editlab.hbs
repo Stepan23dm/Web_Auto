@@ -1,0 +1,32 @@
+<h1>{{viewTitle}}</h1>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+
+<form action="/auto" method="POST" autocomplete="off">
+
+    <input type="hidden" name="_id" value="{{lab._id}}">
+    
+    <div class="form-group">
+        <label>Предприятие</label>
+        <input type="text" class="form-control" name="nameComp" placeholder="Название" value="{{lab.company}}">
+        <div class="text-danger">
+            {{lab.companyError}}</div>
+    </div>
+
+    <div class="form-group">
+        <label>Лаборатория</label>
+        <input type="text" class="form-control" name="nameLab" placeholder="Название" value="{{lab.name}}">
+        <div class="text-danger">
+            {{lab.nameError}}</div>
+    </div>
+
+    <div class="form-group">
+        <label>Начальник</label>
+        <input type="text" class="form-control" name="nameHead" placeholder="Имя" value="{{lab.head}}">
+        <div class="text-danger">
+            {{lab.headError}}</div>
+    </div>
+    
+    <div class="form-group">
+        <button type="submit" class="btn btn-info"><i class="fa fa-database"></i> Submit</button>
+    </div>
+</form>

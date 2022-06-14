@@ -1,0 +1,47 @@
+<h3><a class="btn btn-secondary" href="/auto"><i class="fa fa-arrow-left"></i> Back</a> Start List</h3>
+
+<script src='http://code.jquery.com/jquery-1.7.1.js'></script>
+
+<script>
+    $(function(){
+        $('table td:first-child').each(function (i) {
+                $(this).html(i+1);
+        });
+    });
+</script>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Номер</th>
+            <th>Имя</th>
+            <th>Специализация</th>
+            <th>Зарплата</th>
+            <th>Дата приёма на работу</th>
+            <th>Место работы</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each list}}
+        <tr>
+            <td></td>
+            <td>{{this.name}}</td>
+            <td>
+                {{this.title}}
+                Уровень специализации: {{this.skill}} 
+            </td>
+            <td>{{this.salary}}</td>
+            <td>{{this.start_date}}</td>
+            <td>
+                <p>Предприятие: {{this.dept.company}}</p>
+                <p>Цех: {{this.dept.name}}</p>
+            </td>
+            <td>
+                <a href="/auto/{{this._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+                <a href="/auto/deletePers/{{this._id}}" onclick="return confirm('Удалить документ?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+                
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

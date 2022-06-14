@@ -1,0 +1,46 @@
+<h3><a class="btn btn-secondary" href="/auto"><i class="fa fa-arrow-left"></i> Back</a> Start List</h3>
+
+<script src='http://code.jquery.com/jquery-1.7.1.js'></script>
+
+<script>
+    $(function(){
+        $('table td:first-child').each(function (i) {
+                $(this).html(i+1);
+        });
+    });
+</script>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Номер</th>
+            <th>_Id продукции</th>
+            <th>Тестировщики</th>
+            <th>Оборудование для испытаний</th>
+            <th>Дата испытаний</th>
+            <th>Лаборатория</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each list}}
+        <tr>
+            <td></td>
+            <td>{{this.name.name}}</td>
+            <td>
+                {{#each this.testers}}
+                    <p>{{this.name}}</p>
+                {{/each}}
+            </td>
+            <td>{{this.equip}}</td>
+            <td>{{this.test_date}}</td>
+            <td>{{this.lab.name}}</td>
+            <td>
+                <a href="/auto/{{this._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+                <a href="/auto/deleteTesting/{{this._id}}" onclick="return confirm('Удалить документ?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+                
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

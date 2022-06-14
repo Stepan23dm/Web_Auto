@@ -1,0 +1,42 @@
+<h3><a class="btn btn-secondary" href="/auto"><i class="fa fa-arrow-left"></i> Back</a> Start List</h3>
+
+<script src='http://code.jquery.com/jquery-1.7.1.js'></script>
+
+<script>
+    $(function(){
+        $('table td:first-child').each(function (i) {
+                $(this).html(i+1);
+        });
+    });
+</script>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Номер</th>
+            <th>Название продукта</th>
+            <th>Тип</th>
+            <th>Категория</th>
+            <th>Цена</th>
+            <th>Дата изготовления</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each list}}
+        <tr>
+            <td></td>
+            <td>{{this.name}}</td>
+            <td>{{this.type}}</td>
+            <td>{{this.category}}</td>
+            <td>{{this.price}}</td>
+            <td>{{this.build_date}}</td>
+            <td>
+                <a href="/auto/{{this._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+                <a href="/auro/deleteProd/{{this._id}}" onclick="return confirm('Удалить документ?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+                
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
